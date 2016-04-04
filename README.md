@@ -3,6 +3,7 @@
 Demo / Test code to play with interfacing between the RasPi and various I2C devices, including a custom Arduino I2C slave.
 
 Interesting links along the way
+
 http://www.raspberry-projects.com/pi/programming-in-python/i2c-programming-in-python/using-the-i2c-interface-2
 
 http://www.gammon.com.au/forum/?id=10896
