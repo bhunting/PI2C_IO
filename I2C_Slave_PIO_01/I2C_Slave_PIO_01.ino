@@ -1,14 +1,15 @@
-// Wire Slave Sender
-// by Nicholas Zambetti <http://www.zambetti.com>
-
-// Demonstrates use of the Wire library
-// Sends data as an I2C/TWI slave device
-// Refer to the "Wire Master Reader" example for use with this
-
-// Created 29 March 2006
-
-// This example code is in the public domain.
-
+// RasPi Arduino I2C/TWI Slave
+// Original code :
+// * Wire Slave Sender
+// * by Nicholas Zambetti <http://www.zambetti.com>
+// * Demonstrates use of the Wire library
+// * Sends data as an I2C/TWI slave device
+// * Refer to the "Wire Master Reader" example for use with this
+// * Created 29 March 2006
+// * This example code is in the public domain.
+//
+// Updated April 2016 by bhunting
+//
 
 #include <Wire.h>
 
