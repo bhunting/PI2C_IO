@@ -54,6 +54,37 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
 
+Adding a TinyRTC battery backed up real time clock and eeprom carrier board and scanning the i2c bus yields:
+
+```
+pi@raspberrypi:~$ i2cdetect -y 1
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:          -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- 31 -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: 50 -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- 68 -- -- -- -- -- -- --
+70: -- 71 -- -- -- -- -- --
+```
+
+The real time clock is default to address 0x68 and the eeprom defaults to address 0x50.
+
+The real time clock chip is a Dallas Semiconductor DS1307RTC.
+The eeprom is an Atmel AT24C32.
+
+Reading the real time clock with this command:
+
+```
+>>> tm = i2c.read_i2c_block_data(0x68, 0x00, 7)
+>>> tm
+[64, 52, 19, 7, 9, 4, 22]
+```
+
+The values are displayed in decimal but need to be interpreted in BCD (binary coded decimal) to read the time.
+
+![DS1307_registers.png](bhunting.github.com/PI2C_IO/DS1307_registers.png)
 
 
 Interesting links along the way
