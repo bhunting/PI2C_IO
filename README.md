@@ -86,6 +86,22 @@ The values are displayed in decimal but need to be interpreted in BCD (binary co
 
 ![DS1307_registers.png](DS1307_registers.png)
 
+The RTC was read at 1:38 pm on Saturday April 9, 2016.
+
+```
+[64, 52, 19, 7, 9, 4, 22] read at 1:38 pm on 4/9/16
+
+Convert to hex for BCD
+
+40, 34, 13, 07, 09, 04, 16
+
+Converting the BCD to time and date by using the register table yields:
+
+13:34:40 Saturday 9/4/16
+
+It looks like the RTC time is a bit off from the computer time.
+```
+
 
 Interesting links along the way
 
