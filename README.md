@@ -20,6 +20,15 @@ pi@raspberrypi:~$ sudo i2cdetect -y 1
 0x71 is the sparkfun 7-Segment-Display
 
 Writing to the sparkfun display us the command write_i2c_block_data with the command 0x76 to clear the display and then an array of the bytes to display.
+
+Read from the Arduino at I2C address 0x31 using command 0x27 to read from AIO A7. A photo resistor voltage divider is connected to A7. The Arduino analog io is 10 bits, or values 0 to 1023 for 0 to AREF voltages. The AREF pin in the experiment is connected to VCC, which is around 3V3.
+
+Read the A7 voltage into a temporary value then scale the two bytes to 10 bits.
+
+Use the command i2c.read_i2c_block_data(0x31, 0x27, 2) to read from I2C address 0x31, requesting command 0x27, which is read analog input A7, and read 2 bytes.
+
+Use the command i2c.read_i2c_block_data(0x31, 0x26, 2) to read from A6.
+
 ```
 pi@raspberrypi:~$ sudo python
 Python 2.7.3 (default, Mar 18 2014, 05:13:23)
@@ -38,6 +47,10 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> i2c.write_i2c_block_data(0x71,0x76,[5,6,7,8])
 >>> i2c.write_i2c_block_data(0x71,0x76,[1,2,3,4])
 >>> i2c.write_i2c_block_data(0x71,0x76,[5,6,7,8])
+>>>
+>>> lgt = i2c.read_i2c_block_data(0x31, 0x27, 2)
+>>> lgt[1]*256+lgt[0]
+662
 >>>
 ```
 
