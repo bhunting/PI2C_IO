@@ -84,7 +84,7 @@ Reading the real time clock with this command:
 
 The values are displayed in decimal but need to be interpreted in BCD (binary coded decimal) to read the time.
 
-![DS1307_registers.png](bhunting.github.com/PI2C_IO/DS1307_registers.png)
+![DS1307_registers.png](DS1307_registers.png)
 
 
 Interesting links along the way
