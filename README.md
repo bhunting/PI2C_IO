@@ -21,6 +21,8 @@ pi@raspberrypi:~$ sudo i2cdetect -y 1
 
 Writing to the sparkfun display us the command write_i2c_block_data with the command 0x76 to clear the display and then an array of the bytes to display.
 
+![SFE7SEGSIO.jpeg](SFE7SEGSIO.jpeg)
+
 Read from the Arduino at I2C address 0x31 using command 0x27 to read from AIO A7. A photo resistor voltage divider is connected to A7. The Arduino analog io is 10 bits, or values 0 to 1023 for 0 to AREF voltages. The AREF pin in the experiment is connected to VCC, which is around 3V3.
 
 Read the A7 voltage into a temporary value then scale the two bytes to 10 bits.
