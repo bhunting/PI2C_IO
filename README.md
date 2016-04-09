@@ -74,6 +74,8 @@ The real time clock is default to address 0x68 and the eeprom defaults to addres
 The real time clock chip is a Dallas Semiconductor DS1307RTC.
 The eeprom is an Atmel AT24C32.
 
+![tinyRTC.jpg](tinyRTC.jpg)
+
 Reading the real time clock with this command:
 
 ```
