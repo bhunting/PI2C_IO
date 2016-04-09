@@ -19,6 +19,8 @@ pi@raspberrypi:~$ sudo i2cdetect -y 1
 
 0x71 is the sparkfun 7-Segment-Display
 
+https://www.sparkfun.com/products/11442
+
 Writing to the sparkfun display us the command write_i2c_block_data with the command 0x76 to clear the display and then an array of the bytes to display.
 
 ![SFE7SEGSIO.jpeg](SFE7SEGSIO.jpeg)
