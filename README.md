@@ -129,6 +129,10 @@ This requires using lower level access to support writing the command, waiting a
 
 Others on the inter-webs experience similar read problems using the smbus libraries in python. Eventually a google search turned up an example in python using the lower level io access that worked.
 
+With the power supplie, 7 segment display, and sensors on a breadboard before wiring it looks like this:
+
+![Components.jpg](Components.jpg)
+
 
 ------------------------------------------------------------------------------------------------------------
 
