@@ -108,6 +108,29 @@ Converting the BCD to time and date by using the register table yields:
 It looks like the RTC time is a bit off from the computer time.
 ```
 
+Adding the HTU21D Temperature and Humidity sensor from Adafruit adds another device at address 0x40.
+
+```
+pi@raspberrypi:~$ i2cdetect -y 1
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:          -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- 31 -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: 40 -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: 50 -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- 68 -- -- -- -- -- -- --
+70: -- 71 -- -- -- -- -- --
+```
+
+I found using the smbus library did not work with this sensor. This sensor requires a convert request followed by a delay then a 3 byte data read. The smbus read functions that support multiple byte reads all send a command and then immediately attempt to read the requested number of bytes. If the bytes are not immediately available the read request fails.
+
+This requires using lower level access to support writing the command, waiting an arbitrary delay, and then reading the results.
+
+Others on the inter-webs experience similar read problems using the smbus libraries in python. Eventually a google search turned up an example in python using the lower level io access that worked.
+
+
+------------------------------------------------------------------------------------------------------------
 
 Interesting links along the way
 
