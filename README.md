@@ -135,7 +135,7 @@ With the power supplie, 7 segment display, and sensors on a breadboard before wi
 
 Once wired up the breadboard looks like:
 
-![Components.jpg](Components.jpg)
+![Components_wired.jpg](Components_wired.jpg)
 
 The I2C clock and data are color coded Green and Yellow consistently throughout the wiring.
 
